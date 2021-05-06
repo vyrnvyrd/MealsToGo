@@ -1,36 +1,30 @@
 import React from "react";
-import { StyleSheet, View, SafeAreaView } from "react-native";
+import styled from "styled-components";
+import { SafeAreaView } from "react-native";
 import { Searchbar } from "react-native-paper";
 
-import {
-  RestaurantInfo,
-  RestaurantInfoCard,
-} from "../components/restaurant-info-card.component";
+import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
 import { Global } from "../../../utils/global";
 import { spacing } from "../../../utils/sizes";
 
+const SearchView = styled.View`
+  padding: ${spacing.md}px;
+`;
+
+const ListView = styled.View`
+  flex: 1;
+  background-color: blue;
+  padding: ${spacing.md}px;
+`;
+
 export const RestaurantsScreen = () => (
   <SafeAreaView style={Global.droidSafeArea}>
-    <View style={styles.searchWrapper}>
+    <SearchView>
       <Searchbar />
-    </View>
-    <View style={styles.listWrapper}>
+    </SearchView>
+    <ListView>
       <RestaurantInfoCard />
-    </View>
+    </ListView>
   </SafeAreaView>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  searchWrapper: {
-    padding: spacing.sm,
-  },
-  listWrapper: {
-    flex: 1,
-    backgroundColor: "blue",
-    padding: spacing.sm,
-  },
-});

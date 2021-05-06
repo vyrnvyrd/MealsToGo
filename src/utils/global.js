@@ -1,8 +1,7 @@
-import { StyleSheet, Platform, StatusBar } from "react-native";
+import { StatusBar, SafeAreaView } from "react-native";
+import styled from "styled-components";
 
-export const Global = StyleSheet.create({
-  droidSafeArea: {
-    flex: 1,
-    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
+export const DroidSafeArea = styled(SafeAreaView)`
+  flex: 1;
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
+`;

@@ -2,7 +2,10 @@ import React from "react";
 import { StyleSheet, View, SafeAreaView } from "react-native";
 import { Searchbar } from "react-native-paper";
 
-import { RestaurantInfo } from "../components/restaurant-info.component";
+import {
+  RestaurantInfo,
+  RestaurantInfoCard,
+} from "../components/restaurant-info-card.component";
 
 import { Global } from "../../../utils/global";
 import { spacing } from "../../../utils/sizes";
@@ -13,7 +16,7 @@ export const RestaurantsScreen = () => (
       <Searchbar />
     </View>
     <View style={styles.listWrapper}>
-      <RestaurantInfo />
+      <RestaurantInfoCard />
     </View>
   </SafeAreaView>
 );

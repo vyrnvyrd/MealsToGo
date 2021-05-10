@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FlatList, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import { ActivityIndicator, Colors } from "react-native-paper";
@@ -7,6 +7,8 @@ import { DroidSafeArea } from "../../../utils/global";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Search } from "../components/search.component";
 import { RestaurantsContext } from "../../../services/restaurant/restaurants.context";
+import { FavouritesBar } from "../../favourites/favourites-bar.component";
+import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
 const SafeArea = DroidSafeArea;
 
@@ -18,10 +20,21 @@ const RestaurantList = styled(FlatList).attrs({
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
+  const { favourites } = useContext(FavouritesContext);
+  const [isToggled, setIsToggled] = useState(false);
 
   return (
     <SafeArea>
-      <Search />
+      <Search
+        isFavouritesToggled={isToggled}
+        onFavouritesToggle={() => setIsToggled(!isToggled)}
+      />
+      {isToggled && (
+        <FavouritesBar
+          favourites={favourites}
+          onNavigate={navigation.navigate}
+        />
+      )}
       {isLoading && (
         <ActivityIndicator animating={true} color={Colors.red800} />
       )}

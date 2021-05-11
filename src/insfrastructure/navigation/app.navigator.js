@@ -1,5 +1,4 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
@@ -47,8 +46,4 @@ function MyTabs() {
   );
 }
 
-export const AppNavigator = () => (
-  <NavigationContainer>
-    <MyTabs />
-  </NavigationContainer>
-);
+export const AppNavigator = () => <MyTabs />;

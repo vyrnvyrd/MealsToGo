@@ -5,6 +5,7 @@ import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { DroidSafeArea } from "../../../utils/global";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
+import { TouchableOpacity } from "react-native";
 
 const SafeArea = DroidSafeArea;
 
@@ -21,6 +22,9 @@ export const SettingsScreen = ({ navigation }) => {
     <SafeArea>
       <AvatarContainer>
         <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
+        <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
+          <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
+        </TouchableOpacity>
         <Spacer position="top" size="large">
           <Text variant="label">{user.email}</Text>
         </Spacer>

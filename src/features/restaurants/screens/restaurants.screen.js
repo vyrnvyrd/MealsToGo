@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FlatList, TouchableOpacity } from "react-native";
-import styled from "styled-components";
+import { TouchableOpacity } from "react-native";
 import { ActivityIndicator, Colors } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { DroidSafeArea } from "../../../utils/global";
@@ -9,6 +8,7 @@ import { Search } from "../components/search.component";
 import { RestaurantsContext } from "../../../services/restaurant/restaurants.context";
 import { FavouritesBar } from "../../favourites/favourites-bar.component";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
+import { FadeInView } from "../../../components/animations/fade.animation";
 
 const SafeArea = DroidSafeArea;
 
@@ -47,6 +47,9 @@ export const RestaurantsScreen = ({ navigation }) => {
             >
               <Spacer position="bottom" size="large">
                 <RestaurantInfoCard restaurant={item} />
+                <FadeInView>
+                  <RestaurantInfoCard restaurant={item} />
+                </FadeInView>
               </Spacer>
             </TouchableOpacity>
           );

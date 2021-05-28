@@ -12,11 +12,7 @@ import { FavouritesContext } from "../../../services/favourites/favourites.conte
 
 const SafeArea = DroidSafeArea;
 
-const RestaurantList = styled(FlatList).attrs({
-  contentContainerStyle: {
-    padding: 16,
-  },
-})``;
+import { RestaurantList } from "../components/restaurant-list.styles";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
